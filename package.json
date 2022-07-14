@@ -1,0 +1,29 @@
+{
+  "name": "tx-cli",
+  "version": "1.0.0",
+  "description": "A simple CLI for Vue and Angular projects scaffolding",
+  "main": "index.js",
+  "bin": {
+    "tx": "bin/tx.js"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "vue",
+    "cli",
+    "angular",
+    "scaffolding"
+  ],
+  "author": "Thawing X",
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "4.1.2",
+    "commander": "^9.3.0",
+    "download-github-repo": "^0.1.4",
+    "khaos": "^0.9.3",
+    "read-metadata": "^1.0.0",
+    "rimraf": "^3.0.2",
+    "uid": "^2.0.0"
+  }
+}

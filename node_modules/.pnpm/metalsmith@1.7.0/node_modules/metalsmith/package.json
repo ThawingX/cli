@@ -1,0 +1,51 @@
+{
+  "name": "metalsmith",
+  "version": "1.7.0",
+  "license": "MIT",
+  "repository": "git://github.com/segmentio/metalsmith.git",
+  "description": "An extremely simple, pluggable static site generator.",
+  "bin": {
+    "metalsmith": "bin/metalsmith"
+  },
+  "scripts": {
+    "test": "make test"
+  },
+  "dependencies": {
+    "absolute": "0.0.1",
+    "async": "~0.9.0",
+    "chalk": "^0.5.0",
+    "clone": "^0.1.11",
+    "co-fs-extra": "0.0.2",
+    "commander": "^2.6.0",
+    "fs-extra": "~0.10.0",
+    "gnode": "^0.1.0",
+    "gray-matter": "^2.0.0",
+    "is": "^2.2.0",
+    "is-utf8": "~0.2.0",
+    "recursive-readdir": "^1.2.1",
+    "rimraf": "^2.2.8",
+    "stat-mode": "^0.2.0",
+    "thunkify": "^2.1.2",
+    "unyield": "0.0.1",
+    "ware": "^1.2.0"
+  },
+  "devDependencies": {
+    "assert-dir-equal": "~1.0.1",
+    "co-mocha": "^1.0.1",
+    "metalsmith-drafts": "0.0.1",
+    "metalsmith-markdown": "0.2.1",
+    "mocha": "^1.21.4"
+  },
+  "keywords": [
+    "static",
+    "file",
+    "site",
+    "website",
+    "blog",
+    "generator",
+    "markdown",
+    "jekyll",
+    "wintersmith",
+    "blacksmith"
+  ]
+}
