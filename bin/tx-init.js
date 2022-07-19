@@ -9,7 +9,7 @@ const uid = require('uid')
 const download = require('download-github-repo')
 const Khaos = require('khaos')
 const metadata = require('read-metadata')
-// const logger = require('../lib/logger')
+const logger = require('../lib/logger')
 const rm = require('rimraf').sync
 
 /*  
@@ -28,7 +28,7 @@ program.on('--help', function () {
   console.log('    $ tx init webpack my-project')
   console.log()
   console.log(chalk.gray('    # create a new project straight from a github template'))
-  console.log('    $ vue init username/repo my-project')
+  console.log('    $ tx init username/repo my-project')
   console.log()
 })
 
@@ -58,7 +58,6 @@ const dir = program.directory
 const to = resolve(name)
 if (exists(to)) logger.fatal('"%s" already exists.', name)
 
-
 /*
  * Detect if template on file system
  */
@@ -73,25 +72,25 @@ if (exists(template)) {
   /**
    * Detect official template.
    */
-
+  // 当不存在时，返回true  !~ indexof 的配合使用
   if (!~template.indexOf('/')) {
-    template = 'vuejs-templates/' + template
+    template = 'ThawingX/template#vue-unocss'
   }
 
-/*
- * Download and generate
- */
+  /*
+   * Download and generate
+   */
 
-consttmp = '/tmp/vue-template-' + uid()
-download(template, tmp, function (err) {
-  if (err) logger.fatal(err)
-  generate(tmp, to, function (err) {
+  const tmp = '/tmp/tx-template-' + uid()
+  download(template, tmp, function (err) {
     if (err) logger.fatal(err)
-    rm(tmp)
-    console.log()
-    logger.success('Generated "%s".', name)
+    generate(tmp, to, function (err) {
+      if (err) logger.fatal(err)
+      rm(tmp)
+      console.log()
+      logger.success('Generated "%s".', name)
+    })
   })
-})
 }
 
 /*
@@ -102,10 +101,10 @@ download(template, tmp, function (err) {
  * @param {Function} fn
  */
 
-function generate (src, dest, fn) {
-  consttemplate = join(src, 'template')
-  constkhaos = new Khaos(template)
-  constopts = options(src)
+function generate(src, dest, fn) {
+  const template = join(src, 'template')
+  const khaos = new Khaos(template)
+  const opts = options(src)
 
   khaos.schema(opts.schema)
   khaos.read(function (err, files) {
@@ -140,9 +139,9 @@ function generate (src, dest, fn) {
  * @return {Object}
  */
 
-function options (dir) {
-  constfile = join(dir, 'meta.json')
-  constopts = exists(file)
+function options(dir) {
+  const file = join(dir, 'meta.json')
+  const opts = exists(file)
     ? metadata.sync(file)
     : {}
   defaultName(opts)
@@ -155,8 +154,8 @@ function options (dir) {
  * @param {Object} opts
  */
 
-function defaultName (opts) {
-  constschema = opts.schema || (opts.schema = {})
+function defaultName(opts) {
+  const schema = opts.schema || (opts.schema = {})
   if (!schema.name || typeof schema.name !== 'object') {
     schema.name = {
       'type': 'string',
