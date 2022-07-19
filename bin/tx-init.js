@@ -5,7 +5,7 @@ const chalk = require('chalk')
 const exists = require('fs').existsSync
 const join = require('path').join
 const resolve = require('path').resolve
-const uid = require('uid')
+const {uid} = require('uid')
 const download = require('download-github-repo')
 const Khaos = require('khaos')
 const metadata = require('read-metadata')
@@ -52,7 +52,7 @@ process.on('exit', () => {
  * Settings
  */
 
-const template = program.args[0]
+let template = program.args[0]
 const name = program.args[1]
 const dir = program.directory
 const to = resolve(name)
@@ -74,7 +74,7 @@ if (exists(template)) {
    */
   // 当不存在时，返回true  !~ indexof 的配合使用
   if (!~template.indexOf('/')) {
-    template = 'ThawingX/template#vue-unocss'
+    template = `thawingx/template#${template}`
   }
 
   /*
@@ -102,7 +102,7 @@ if (exists(template)) {
  */
 
 function generate(src, dest, fn) {
-  const template = join(src, 'template')
+  const template = join(src)
   const khaos = new Khaos(template)
   const opts = options(src)
 

@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
 const logger = require('../lib/logger')
-
 const chalk = require('chalk')
+
 
 /**
  * Padding.
