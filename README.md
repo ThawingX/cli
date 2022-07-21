@@ -1,5 +1,5 @@
 <p align='center'>
-  <img src='https://ghproxy.futils.com/https://github.com/ThawingX/images/blob/master/cat%26dog.png' alt='tx-cli - the front-end cli for myself'/ width='300'>
+  <img src='./Logo.png' alt='tx-cli - the front-end cli for myself'/ width='300'>
 </p>
 
 <p align='center'>
@@ -11,7 +11,7 @@
 ```bash
   npm install -g @thawingx/cli
   tx init vue-unocss my-project
-  
+
   # detail:
   tx init <repoName> <projectName> # you can use any other repo at github and gitlab
   tx list # there some preset template
