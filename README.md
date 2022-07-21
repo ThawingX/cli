@@ -1,5 +1,5 @@
 <p align='center'>
-  <img src='./Logo.png' alt='tx-cli - the front-end cli for myself'/ width='300'>
+  <img src='https://raw.githubusercontent.com/ThawingX/images/master/cat%26dog.png' alt='tx-cli - the front-end cli for myself'/ width='300'>
 </p>
 
 <p align='center'>
