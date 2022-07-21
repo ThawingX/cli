@@ -2,8 +2,8 @@
 
 const logger = require('../lib/logger')
 const chalk = require('chalk')
-
-
+const axios = require('axios')
+const treeBaseUrl = "https://github.com/ThawingX/template/tree/"
 /**
  * Padding.
  */
@@ -16,20 +16,23 @@ process.on('exit', function () {
 /**
  * List repos.
  */
-
-request({
-  url: 'https://api.github.com/users/tx-templates',
+const config = {
+  method: 'get',
+  url: 'https://api.github.com/repos/thawingx/template/branches',
   headers: {
-    'User-Agent': 'tx-cli'
+    "User-Agent": "thawingx"
   }
-}, function (err, res, body) {
-  if (err) logger.fatal(err)
-  console.log('  Available official templates:')
-  console.log()
-  JSON.parse(body).forEach(function (repo) {
-    console.log(
-      '  ' + chalk.yellow('★') +
-      '  ' + chalk.blue(repo.name) +
-      ' - ' + repo.description)
+};
+
+axios(config)
+  .then(function ({ data: branches }) {
+    console.log('Available templates:')
+    chalk.gray('just my preset, you can use any other template by github-path')
+    console.log()
+    branches.forEach(({ name, commit, protected }) => {
+      console.log(` ${chalk.yellow('★')} ${chalk.blue(name)}-${treeBaseUrl + name}`)
+    })
   })
-})
+  .catch(function (error) {
+    logger.fatal(error)
+  });

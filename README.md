@@ -7,6 +7,12 @@
 </p>
 
 ## Usage
-```bash
 
+```bash
+  npm install -g @thawingx/cli
+  tx init vue-unocss my-project
+  
+  # detail:
+  tx init <repoName> <projectName> # you can use any other repo at github and gitlab
+  tx list # there some preset template
 ```

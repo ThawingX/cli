@@ -5,7 +5,7 @@ const chalk = require('chalk')
 const exists = require('fs').existsSync
 const join = require('path').join
 const resolve = require('path').resolve
-const {uid} = require('uid')
+const { uid } = require('uid')
 const download = require('download-github-repo')
 const Khaos = require('khaos')
 const metadata = require('read-metadata')
@@ -24,11 +24,13 @@ program.usage('<template-name> <project-name>')
 program.on('--help', function () {
   console.log('  Examples:')
   console.log()
-  console.log(chalk.gray('    # create a new project with an official template'))
-  console.log('    $ tx init webpack my-project')
+  console.log(chalk.gray('    # create a new project with an template of thawingx,'))
+  console.log(chalk.gray('    # detail at branch of https://github.com/ThawingX/template'))
+  console.log('    $ tx init vue-unocss my-project')
   console.log()
-  console.log(chalk.gray('    # create a new project straight from a github template'))
-  console.log('    $ tx init username/repo my-project')
+  console.log(chalk.gray('    # create a new project straight from a github template, just support github and gitlab'))
+  console.log('    $ tx init thawingx/template/vue-unocss my-project')
+  console.log('    $ tx init <username>/<template> <projectName>')
   console.log()
 })
 
