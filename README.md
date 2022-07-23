@@ -3,13 +3,20 @@
 </p>
 
 <p align='center'>
-  The tx-cli will support angular and other vue, cureentlly only vue, you can see the repo <a href='https://github.com/ThawingX/template' target='__blank'>vue3-unocss</a> and <a href='https://vue-unocss-template.netlify.app/' target='__blank'>live demo</a>
+  The tx-cli will support vue,angular and other, cureentlly only vue and README, you can see the repo:
 </p>
+
+
+<p align='center'><a href='https://github.com/ThawingX/template' target='__blank'>vue3-unocss template</a> and <a href='https://vue-unocss-template.netlify.app/' target='__blank'>live demo</a></p>
+
+<p align='center'><a href='https://github.com/ThawingX/template/tree/README' target='__blank'>README template</a> and <a href='https://github.com/ThawingX/template/blob/README/README.md'>live demo</a> 
+
 
 ## Usage
 
 ```bash
   npm install -g @thawingx/cli
+  tx list 
   tx init vue-unocss my-project
 
   # detail:
