@@ -122,12 +122,16 @@ function generate(src, dest, fn) {
  */
 
 function options(dir) {
+  // 预留meta.json
   const file = join(dir, 'meta.json')
   const opts = exists(file)
     ? metadata.sync(file)
     : {}
 
   setDefault(opts, 'name', projectName)
+  setDefault(opts, 'version', "v0.0.0")
+  setDefault(opts, 'description', "<>")
+  setDefault(opts, 'main', "index.js")
   const author = getGitUser()
   if (author) {
     setDefault(opts,'author',author)
